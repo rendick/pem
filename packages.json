@@ -1,0 +1,12 @@
+{
+  "package": [
+    {
+      "name": "micro",
+      "type": "Type1"
+    },
+    {
+      "name": "zsh",
+      "type": "Type2"
+    }
+  ]
+}
