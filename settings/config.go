@@ -4,7 +4,7 @@ var (
 	help = `
 install: 
 
-pew: <https://github.com/rendick/pem/>
+pem: <https://github.com/rendick/pem/>
 	`
 )
 
