@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	config "rendick/pem/settings"
 	"strings"
 )
 
@@ -14,14 +13,19 @@ import (
 // }
 
 func main() {
-	config.Config()
 	if len(os.Args) == 2 {
 		switch os.Args[1] {
 		case "install":
 			fmt.Printf("%s: missing package\nUsage: pem install [PACKAGE]\nTry --help for more information\n", os.Args[1])
+			// other commands
+		case "help":
+			fmt.Println(help)
+			os.Exit(0)
+
 		}
 	} else if len(os.Args) == 3 {
 		switch os.Args[1] {
+		// main commands
 		case "install":
 			fmt.Println("intall 2")
 			PackageName()
