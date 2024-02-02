@@ -16,9 +16,16 @@ func Logs() {
 		}
 	}
 
-	writeErr := os.WriteFile("/var/log/pem/pem.log", []byte(Log), 0644)
+	f, err := os.OpenFile("/var/log/pem/pem.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	_, writeErr := f.WriteString(Log)
 	if writeErr != nil {
 		panic(writeErr)
+	} else {
+		fmt.Println(Green + "Log written successfully." + Reset)
 	}
-	fmt.Println("Log written successfully.")
 }

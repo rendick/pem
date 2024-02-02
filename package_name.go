@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -17,12 +16,11 @@ type Package struct {
 	Type string `json:"type"`
 }
 
-func PackageName() {
-	ReadJson, err := os.Open("./packages.json")
+func PackageName() []string {
+	ReadJson, err := os.Open("packages.json")
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Successfully opened packages.json")
 	defer ReadJson.Close()
 
 	ByteValue, _ := ioutil.ReadAll(ReadJson)
@@ -31,5 +29,10 @@ func PackageName() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	var packageNames []string
+	for i := 0; i < len(packages.Packages); i++ {
+		packageNames = append(packageNames, packages.Packages[i].Name)
+	}
 
+	return packageNames
 }
