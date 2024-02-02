@@ -6,17 +6,23 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"time"
 )
 
 // func ArgumentName() {
 //
 // }
 
+var Log string
+
 func main() {
 	if len(os.Args) == 2 {
 		switch os.Args[1] {
 		case "install":
-			fmt.Printf("%s: missing package\nUsage: pem install [PACKAGE]\nTry --help for more information\n", os.Args[1])
+			Log = fmt.Sprintf("(%s)\n%s: missing package\nUsage: pem install [PACKAGE]\nTry --help for more information\n", time.Now().Format("2017-09-07 17:06:06"), os.Args[1])
+			fmt.Println("Log content: ", Log)
+			Logs()
+			os.Exit(0)
 			// other commands
 		case "help":
 			fmt.Println(help)
