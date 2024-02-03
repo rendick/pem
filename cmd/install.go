@@ -21,7 +21,7 @@ func InstallPackage(packageName string) {
 	}
 	defer response.Body.Close()
 
-	tempFile, err := os.CreateTemp("", "micro.html")
+	tempFile, err := os.CreateTemp("", os.Args[2])
 	if err != nil {
 		fmt.Println("Error creating temporary file:", err)
 		return
