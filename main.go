@@ -1,5 +1,7 @@
 package main
 
+import "github.com/rendick/pem/cmd"
+
 func main() {
-	Switch()
+	cmd.Switch()
 }

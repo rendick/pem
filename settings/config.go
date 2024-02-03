@@ -1,9 +1,6 @@
-package main
+package config
 
 var (
-	// path
-	logpath      = "/var/log/pem/"
-	packagespath = "./packages.json"
 	// style
 	Red   = "\033[31m"
 	Bold  = "\033[1m"
