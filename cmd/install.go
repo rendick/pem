@@ -12,7 +12,7 @@ var URL string
 
 func InstallPackage(packageName string) {
 
-	URL = fmt.Sprintf("https://pem-packages.vercel.app/packages/%s.html", os.Args[2])
+	URL = fmt.Sprintf("Installing https://pem-packages.vercel.app/packages/%s.html", os.Args[2])
 	fmt.Println(URL)
 	response, err := http.Get(URL)
 	if err != nil {
@@ -23,7 +23,7 @@ func InstallPackage(packageName string) {
 
 	tempFile, err := os.CreateTemp("", os.Args[2])
 	if err != nil {
-		fmt.Println("Error creating temporary file:", err)
+		fmt.Println("Error creating temporar  file:", err)
 		return
 	}
 	defer tempFile.Close()

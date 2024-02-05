@@ -1,10 +1,7 @@
 package cmd
 
 import (
-	"fmt"
 	"os"
-
-	config "github.com/rendick/pem/settings"
 )
 
 // sudo chmod 777 /var/log/pem
@@ -33,7 +30,5 @@ func Logs() {
 	_, writeErr := f.WriteString(Log)
 	if writeErr != nil {
 		panic(writeErr)
-	} else {
-		fmt.Println(config.Green + "Log written successfully." + config.Reset)
 	}
 }
