@@ -16,12 +16,12 @@ var (
 func Scrapper() {
 	c := colly.NewCollector()
 
-	c.OnHTML("ul", func(e *colly.HTMLElement) {
+	c.OnHTML("ul#myMenu", func(e *colly.HTMLElement) {
 		fmt.Println(config.Red + config.Bold + e.Text + config.Reset)
 	})
 
 	c.OnRequest(func(r *colly.Request) {
-		fmt.Printf(config.Red+config.Bold+"(%s)\n"+config.Reset+"All packages are available on: "+config.Bold+"%s\n"+config.Reset, time.Now().Format("2006-01-02 15:04:05"), r.URL)
+		fmt.Printf(config.Red+config.Bold+"(%s) "+config.Reset+"All packages are available on: "+config.Bold+"%s\n"+config.Reset, time.Now().Format("2006-01-02 15:04:05"), r.URL)
 	})
 
 	c.Visit(packagesurl)

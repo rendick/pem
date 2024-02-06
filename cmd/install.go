@@ -12,7 +12,7 @@ var URL string
 
 func InstallPackage(packageName string) {
 
-	URL = fmt.Sprintf("Installing https://pem-packages.vercel.app/packages/%s.html", os.Args[2])
+	URL = fmt.Sprintf("https://pem-packages.vercel.app/packages/%s.html", os.Args[2])
 	fmt.Println(URL)
 	response, err := http.Get(URL)
 	if err != nil {
