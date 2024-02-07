@@ -8,20 +8,19 @@ import (
 
 var (
 	// path
-	logpath      = "/var/log/pem/"
-	packagespath = "./packages.json"
+	LogPath = "/var/log/pem/"
 )
 
 func Logs() {
-	_, err := os.Stat(logpath)
+	_, err := os.Stat(LogPath)
 	if os.IsNotExist(err) {
-		err := os.Mkdir(logpath, 0750)
+		err := os.Mkdir(LogPath, 0750)
 		if err != nil {
 			panic(err)
 		}
 	}
 
-	f, err := os.OpenFile(logpath+"pem.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	f, err := os.OpenFile(LogPath+"pem.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
 		panic(err)
 	}

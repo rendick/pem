@@ -1,7 +1,16 @@
 package main
 
-import "github.com/rendick/pem/cmd"
+import (
+	"log"
+	"runtime"
+
+	"github.com/rendick/pem/cmd"
+)
 
 func main() {
-	cmd.Switch()
+	if runtime.GOOS == "linux" {
+		cmd.Switch()
+	} else {
+		log.Printf("You are not running Linux!")
+	}
 }

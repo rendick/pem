@@ -9,11 +9,16 @@ import (
 
 var Log string
 
+var (
+	InstallLog = "\n%s: missing package\nUsage: pem install [PACKAGE]\nTry --help for more information\n"
+	RemoveLog  = "\n%s: missing package\nUsage: pem remove [PACKAGE]\nTry --help for more information\n"
+)
+
 func Switch() {
 	if len(os.Args) == 2 {
 		switch os.Args[1] {
 		case "install", "-I", "-i", "i": // main command
-			Log = fmt.Sprintf(config.Red+"(%s)"+config.Reset+"\n%s: missing package\nUsage: pem install [PACKAGE]\nTry --help for more information\n", config.Time, os.Args[1])
+			Log = fmt.Sprintf(config.Red+"(%s)"+config.Reset+InstallLog, config.Time, os.Args[1])
 			fmt.Println(Log)
 			Logs()
 			os.Exit(0)
@@ -22,10 +27,11 @@ func Switch() {
 			Scrapper()
 
 		case "update", "-U", "-u", "u": // main command
-			fmt.Println("Update...")
+			fmt.Println("Soon.")
+			os.Exit(0)
 
 		case "remove", "-R", "-r", "r": // main command
-			Log = fmt.Sprintf(config.Red+"(%s)"+config.Reset+"\n%s: missing package\nUsage: pem remove [PACKAGE]\nTry --help for more information\n", config.Time, os.Args[1])
+			Log = fmt.Sprintf(config.Red+"(%s)"+config.Reset+RemoveLog, config.Time, os.Args[1])
 			fmt.Println(Log)
 			Logs()
 			os.Exit(0)
