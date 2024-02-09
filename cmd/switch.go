@@ -35,6 +35,8 @@ func Switch() {
 			fmt.Println(Log)
 			Logs()
 			os.Exit(0)
+		case "stats", "-S", "-s", "s":
+			PackageStats()
 
 		case "help", "--help", "-H", "-h", "h": // other command
 			config.Help()

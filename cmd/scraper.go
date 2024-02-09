@@ -8,10 +8,6 @@ import (
 	config "github.com/rendick/pem/settings"
 )
 
-var (
-	PackagesURL = "https://pem-packages.vercel.app/"
-)
-
 func Scrapper() {
 	c := colly.NewCollector()
 
@@ -23,5 +19,5 @@ func Scrapper() {
 		log.Printf(config.Red+config.Bold+config.Reset+"All packages are available on: "+config.Bold+"%s"+config.Reset, r.URL)
 	})
 
-	c.Visit(PackagesURL)
+	c.Visit(config.PackagesURL)
 }

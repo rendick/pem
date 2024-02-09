@@ -6,17 +6,15 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+
+	config "github.com/rendick/pem/settings"
 )
 
 var URL string
 
-var (
-	PackageLink = "https://pem-packages.vercel.app/packages/%s.html"
-)
-
 func InstallPackage(packageName string) {
 
-	URL = fmt.Sprintf(PackageLink, os.Args[2])
+	URL = fmt.Sprintf(config.PackageLink, os.Args[2])
 	fmt.Println(URL)
 	response, err := http.Get(URL)
 	if err != nil {

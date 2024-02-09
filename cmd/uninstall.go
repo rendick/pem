@@ -12,18 +12,12 @@ import (
 
 var Remove string
 
-var (
-	PackagePath = "/bin/"
-	ErrorMsg    = "%s not successfully uninstalled!\nCould not find file!\n"
-	SuccessMsg  = "%s successfully uninstalled!\n"
-)
-
 func UninstallPacage(packageName string) {
-	Remove = fmt.Sprintf("%s%s", PackagePath, packageName)
+	Remove = fmt.Sprintf("%s%s", config.PackageDir, packageName)
 	uninstall := os.Remove(Remove)
 	if uninstall != nil {
-		log.Printf(config.Red+config.Bold+"%s not successfully uninstalled! Could not find file!"+config.Reset, packageName)
+		log.Printf(config.Red+config.Bold+config.ErrorMsg+config.Reset, packageName)
 	} else {
-		log.Printf(config.Green+config.Bold+"%s successfully uninstalled!"+config.Reset, packageName)
+		log.Printf(config.Green+config.Bold+config.SuccessMsg+config.Reset, packageName)
 	}
 }

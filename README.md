@@ -11,13 +11,13 @@ A simple, lightweight and user-friendly but functional and powerful package mana
 │   ├── install.go
 │   ├── log.go
 │   ├── scraper.go
+│   ├── stats.go
 │   ├── switch.go
 │   └── uninstall.go
 ├── go.mod
 ├── go.sum
 ├── LICENSE
 ├── main.go
-├── pem
 ├── README.md
 └── settings
     └── config.go
