@@ -45,5 +45,4 @@ func InstallPackage(packageName string) {
 	}
 
 	fmt.Println(string(output))
-
 }
