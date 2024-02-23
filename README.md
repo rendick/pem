@@ -29,7 +29,7 @@ A simple, lightweight and user-friendly but functional and powerful package mana
 git clone https://github.com/rendick/pem.git
 cd pem/bin/
 sudo mv pem /bin
-pem help 
+pem --help 
 ```
 
 # Usage
